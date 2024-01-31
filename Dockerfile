@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 LABEL server="ewa_server"
 
-COPY package.json package-lock.json ./
+COPY package.json yarn.lock ./
 
 RUN yarn
 
