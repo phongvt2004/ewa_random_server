@@ -4,6 +4,6 @@ services:
     build: .
     restart: always
     ports:
-      - "3001:${PORT}"
+      - "3002:${PORT}"
     volumes:
       - ./src/public:/usr/src/app/src/public
