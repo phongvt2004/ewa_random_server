@@ -1,0 +1,9 @@
+version: "4.0"
+services:
+  server:
+    build: .
+    restart: always
+    ports:
+      - "3001:${PORT}"
+    volumes:
+      - ./src/public:/usr/src/app/src/public
