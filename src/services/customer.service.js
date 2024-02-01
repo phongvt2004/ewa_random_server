@@ -45,11 +45,6 @@ class CustomerService {
             $match: {
                 type: type,
             },
-        },
-        {
-            $project: {
-                _id: 0,
-            }
         }])
         if(customer.length>0) return customer
         else return createError.NotFound("Type not found")
@@ -61,11 +56,6 @@ class CustomerService {
                 type: type,
                 online
             },
-        },
-        {
-            $project: {
-                _id: 0,
-            }
         }])
         if(customer.length>0) return customer
         else return createError.NotFound("Type not found")
