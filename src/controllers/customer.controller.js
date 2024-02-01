@@ -18,7 +18,7 @@ class CustomerController {
                 phoneNumber,
                 time,
                 code,
-                online: online === "true" || online ? true : false,
+                online
             })
 
             res.json(data)
@@ -86,7 +86,7 @@ class CustomerController {
 
             const data = await CustomerService.getByTypeAndBuyType({
                 type,
-                online
+                online: online === "true" ? true : false,
             })
 
             res.json(data)
