@@ -18,7 +18,7 @@ class CustomerController {
                 phoneNumber,
                 time,
                 code,
-                online,
+                online: online === "true" || online ? true : false,
             })
 
             res.json(data)
