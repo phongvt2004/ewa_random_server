@@ -54,6 +54,22 @@ class CustomerService {
         if(customer.length>0) return customer
         else return createError.NotFound("Type not found")
     }
+    
+    static getByTypeAndBuyType = async({type, online}) => {
+        const customer = await Customers.aggregate([{
+            $match: {
+                type: type,
+                online
+            },
+        },
+        {
+            $project: {
+                _id: 0,
+            }
+        }])
+        if(customer.length>0) return customer
+        else return createError.NotFound("Type not found")
+    }
 
     static getAllCodeByType = async({type}) => {
         const customer = await Customers.aggregate([{

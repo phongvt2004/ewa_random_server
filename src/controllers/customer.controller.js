@@ -9,7 +9,8 @@ class CustomerController {
                 type,
                 phoneNumber,
                 time,
-                code
+                code,
+                online
             } = req.body
             const data = await CustomerService.create({
                 type: type.toLowerCase(),
@@ -17,6 +18,7 @@ class CustomerController {
                 phoneNumber,
                 time,
                 code,
+                online,
             })
 
             res.json(data)
@@ -67,6 +69,24 @@ class CustomerController {
 
             const data = await CustomerService.getByType({
                 type,
+            })
+
+            res.json(data)
+        } catch (error) {
+            next(createError.InternalServerError(error))
+        }
+    }
+
+    async getByTypeAndBuyType(req, res, next) {
+        try {
+            const {
+                type,
+                online
+            } = req.query
+
+            const data = await CustomerService.getByTypeAndBuyType({
+                type,
+                online
             })
 
             res.json(data)

@@ -5,5 +5,6 @@ const Customers = new Schema({
     phoneNumber: {type: String, required: true},
     time: {type: Date, required: true},
     code: {type: String, required: true},
+    online: {type: Boolean, required: true},
 })
 module.exports = model('Customers', Customers)
