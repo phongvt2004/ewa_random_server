@@ -10,17 +10,9 @@ class CustomerController {
                 phoneNumber,
                 time,
                 code,
-                online,
-                test
-            } = req.body
-            const data = test ? await CustomerService.createTest({
-                type: type.toLowerCase(),
-                name,
-                phoneNumber,
-                time,
-                code,
                 online
-            }) : await CustomerService.create({
+            } = req.body
+            const data = await CustomerService.create({
                 type: type.toLowerCase(),
                 name,
                 phoneNumber,
