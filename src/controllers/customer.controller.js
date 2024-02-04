@@ -10,9 +10,17 @@ class CustomerController {
                 phoneNumber,
                 time,
                 code,
-                online
+                online,
+                test
             } = req.body
-            const data = await CustomerService.create({
+            const data = test ? await CustomerService.createTest({
+                type: type.toLowerCase(),
+                name,
+                phoneNumber,
+                time,
+                code,
+                online
+            }) : await CustomerService.create({
                 type: type.toLowerCase(),
                 name,
                 phoneNumber,
@@ -45,7 +53,7 @@ class CustomerController {
     }
 
     async getByPhoneNumber(req, res, next) {
-        try {      
+        try {
             const {
                 phoneNumber
             } = req.query

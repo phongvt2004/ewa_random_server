@@ -9,6 +9,13 @@ const compression = require('compression')
 const cors = require('cors')
 const path = require('path');
 const cookieParser = require('cookie-parser')
+const CustomerService = require('./services/customer.service')
+const check_missing_image = require('./utils/check_missing_image')
+
+CustomerService.getAll()
+.then(customers => check_missing_image(customers))
+
+.then(sth => console.log(sth))
 
 
 //init dbs 
