@@ -6,9 +6,7 @@ class CustomerService {
 
     static createTest = async(data) => {
         try {
-            let customer = await Test.findOne({phoneNumber: data.phoneNumber, code: data.code})
-            if(customer) throw "Customer has inserted already"
-            customer = new Test(data)
+            const customer = new Test(data)
             const result = await customer.save()
             return {customer: result, status: 200}
         } catch (error) {
@@ -18,9 +16,7 @@ class CustomerService {
     }
     static create = async(data) => {
         try {
-            let customer = await Customers.findOne({phoneNumber: data.phoneNumber, code: data.code})
-            if(customer) throw "Customer has inserted already"
-            customer = new Customers(data)
+            const customer = new Customers(data)
             const result = await customer.save()
             return {customer: result, status: 200}
         } catch (error) {

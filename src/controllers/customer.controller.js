@@ -7,7 +7,7 @@ class CustomerController {
             const{
                 name,
                 type,
-                phoneNumber,
+                // phoneNumber,
                 time,
                 code,
                 online
@@ -15,7 +15,7 @@ class CustomerController {
             const data = await CustomerService.create({
                 type: type.toLowerCase(),
                 name,
-                phoneNumber,
+                // phoneNumber,
                 time,
                 code,
                 online
